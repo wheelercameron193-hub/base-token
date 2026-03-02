@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@types/bs58": "^4.0.4",
+    "@types/node": "^25.3.3"
+  }
+}

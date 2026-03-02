@@ -1,5 +1,6 @@
 import { Keypair } from "@solana/web3.js";
 import * as fs from "fs";
+import * as bs58 from "bs58";
 
 /**
  * Load a Solana keypair from env:
@@ -10,15 +11,17 @@ export function loadKeypair(): Keypair {
   const secret = process.env.PRIVATE_KEY;
   const keypairPath = process.env.KEYPAIR_PATH;
   if (!secret && !keypairPath) {
-    throw new Error( "Set PRIVATE_KEY (base58 or JSON array) or KEYPAIR_PATH");
+    throw new Error("Set PRIVATE_KEY (base58 or JSON array) or KEYPAIR_PATH");
   }
   if (secret) {
     if (secret.startsWith("[")) {
       return Keypair.fromSecretKey(Uint8Array.from(JSON.parse(secret)));
     }
-    const bs58 = require("bs58");
     return Keypair.fromSecretKey(bs58.decode(secret));
   }
-  const data = JSON.parse(fs.readFileSync(keypairPath!, "utf-8"));
+  if (!keypairPath) {
+    throw new Error("KEYPAIR_PATH is required");
+  }
+  const data = JSON.parse(fs.readFileSync(keypairPath, "utf-8"));
   return Keypair.fromSecretKey(Uint8Array.from(data));
 }
