@@ -1,8 +1,9 @@
-# cSpell:ignore elmz
+# cSpell:ignore elmz Microsec stopb
 logDir : '/Users/elmz/base-token/out/LinkToken.sol/staking_deposit-cli-fdab65d-darwin-amd64/.vscode/pty-mcp-server/logs'
 logLevel : 'Debug'
 toolsDir: '/Users/elmz/base-token/out/LinkToken.sol/staking_deposit-cli-fdab65d-darwin-amd64/.vscode/pty-mcp-server/tools'
-promptsDir: '/Users/elmz/base-token/out/LinkToken.sol/staking_deposit-cli-fdab65d-darwin-amd64/.vscode/pty-mcp-server/prompts'
+promptsDir: >-
+  /Users/elmz/base-token/out/LinkToken.sol/staking_deposit-cli-fdab65d-darwin-amd64/.vscode/pty-mcp-server/prompts
 resourcesDir: '/Users/elmz/base-token/out/LinkToken.sol/staking_deposit-cli-fdab65d-darwin-amd64/.vscode/pty-mcp-server/resources'
 sandboxDir : '/Users/elmz/base-token/out/LinkToken.sol/staking_deposit-cli-fdab65d-darwin-amd64/.vscode/pty-mcp-server/sandbox'
 prompts:
@@ -13,22 +14,19 @@ prompts:
   - ')?'
   - 'Password:'
   - 'password:'
-  - 'ghci>'
+  - 'gwei>'
   - '--More--'
   - '(END)'
 invalidChars:
   - '&&'
   - '||'
   - '..'
-invalidCmds:
-  -
+invalidCmds: []
 
 # not yet implemented parameters.
-environment:
-  ProgramData: "C:\\ProgramData"
-  SystemRoot: "C:\\Windows"
+environment: {}
 timeoutMicrosec: 1000000
-sandboxNW : "192.168.0.0/24"
+sandboxNW : "127.0.0.1/24"
 serial:
   device: "COM3"
   commSpeed: 9600
